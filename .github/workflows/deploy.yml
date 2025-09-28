@@ -17,7 +17,7 @@ jobs:
           password: ${{ secrets.DROPLET_PASSWORD }}  # store your droplet password in GitHub secrets
           port: 22
           script: |
-            cd /opt/eba-job-platform            # path to your project on the droplet
+            cd ../opt/kmdc-5g-mec-backend # path to your project on the droplet
             git pull origin master              # or main
             chmod +x deploy.sh
             ./deploy.sh
