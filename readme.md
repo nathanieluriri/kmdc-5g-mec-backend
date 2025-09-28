@@ -176,7 +176,7 @@ Standard Response Headers:
 | `X-RateLimit-Remaining` | `59`                            | Remaining requests in the current time window.                     |
 | `X-RateLimit-Reset`     | `60`                            | Time in seconds until the rate limit resets.                       |
 | `X-User-Id`             | `68d9bbd1c193e004331fd882`      | Authenticated user’s ID for this request.                          |
-| `X-User-Type`           | `member`                        | Role or type of the authenticated user.                            |
+| `X-User-Type`           | `member/admin`                        | Role or type of the authenticated user.                            |
 
 
 ---
