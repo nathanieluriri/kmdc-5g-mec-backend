@@ -12,39 +12,18 @@ class UserRoleBody(BaseModel):
     description:str
     
 class UserRoles(Enum):
-    client=UserRoleBody(name="client",description="This user creates Job Postings")
-    agent= UserRoleBody(name="agent",description="This user accepts job postings")
-    
+    remote_engineer=UserRoleBody(name="remote_engineer",description="Full system access incl. remote control, video feeds")
+    safety_officer= UserRoleBody(name="safety_officer",description="Sensor monitoring, worker tracking, incident reporting")
+    maintenance_tech=UserRoleBody(name="maintenance_tech",description="Equipment health, predictive maintenance")
+    operator_viewer=UserRoleBody(name="operator_viewer",description="Read-only dashboards")	
     
 class UserRolesBase(str,Enum):
-    client="client"
-    agent="agent"
+    remote_engineer="remote_engineer"
+    safety_officer="safety_officer"
+    maintenance_tech="maintenance_tech"
+    operator_viewer="operator_viewer"
     
     
-class JobStatus(str,Enum):
-    active="active"
-    pending="pending"
     
-class JobCatgeries(str,Enum):
-    web_development="Web Devlopment"
-    mobile_development="Mobile Development"
-    ui_ux_design="UI/UX Design"
-    content_writing="Content Writing"
-    digital_marketing="Digital Marketing"
-    data_analysis="Data Analysis"
-    other="Other"
+
     
-    
-class JobTimeline(BaseModel):
-    start_date:int
-    deadline:int
-    
-    
-class Skills(str,Enum):
-    web_development="Web Devlopment"
-    mobile_development="Mobile Development"
-    ui_ux_design="UI/UX Design"
-    content_writing="Content Writing"
-    digital_marketing="Digital Marketing"
-    data_analysis="Data Analysis"
-    other="Other"
