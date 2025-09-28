@@ -41,11 +41,15 @@ async def get_my_users(token:accessTokenOut = Depends(verify_token)):
 
 @router.post("/signup", response_model=APIResponse[UserOut])
 async def signup_new_user(user_data:UserBase):
-    if user_data.role== UserRolesBase.client:
-        userRole = UserRoles.client
-    elif user_data.role == UserRolesBase.agent:
-        userRole= UserRoles.agent        
-    
+    if user_data.role== UserRolesBase.maintenance_tech:
+        userRole = UserRoles.maintenance_tech
+    elif user_data.role == UserRolesBase.remote_engineer:
+        userRole= UserRoles.remote_engineer  
+    elif user_data.role == UserRolesBase.operator_viewer:
+        userRole= UserRoles.operator_viewer
+    elif user_data.role == UserRolesBase.safety_officer:
+        userRole= UserRoles.safety_officer
+        
     new_user = UserCreate(email=user_data.email,password=user_data.password,role=userRole)
     items = await add_user(user_data=new_user)
     return APIResponse(status_code=200, data=items, detail="Fetched successfully")
