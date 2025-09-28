@@ -285,11 +285,6 @@ All API responses (success or error) follow the same envelope:
 
 ## Error Handling & Rate Limits
 
-Got it — you want the **“Standard Error”** section to literally match the example pattern you sent (your API doesn’t wrap it in `success:false` but uses `status_code` + `data` + `detail`).
-
-Here’s a copy-paste ready block:
-
----
 
 ### **Standard Error**
 
@@ -301,32 +296,13 @@ Here’s a copy-paste ready block:
 }
 ```
 
-**Response Headers:**
-
-| Header                  | Example Value                   | Description                                                        |
-| ----------------------- | ------------------------------- | ------------------------------------------------------------------ |
-| `Connection`            | `keep-alive`                    | Indicates that the server will keep the connection open for reuse. |
-| `Content-Length`        | `58`                            | Size of the response body in bytes.                                |
-| `Content-Type`          | `application/json`              | MIME type of the response content.                                 |
-| `Date`                  | `Sun, 28 Sep 2025 22:51:15 GMT` | Date and time when the response was sent.                          |
-| `Server`                | `nginx/1.26.3 (Ubuntu)`         | Web server software handling the request.                          |
-| `X-Process-Time`        | `0.005338191986083984`          | Time taken by the backend to process the request (in seconds).     |
-| `X-RateLimit-Limit`     | `60`                            | Maximum requests allowed per time window.                          |
-| `X-RateLimit-Remaining` | `59`                            | Remaining requests in the current time window.                     |
-| `X-RateLimit-Reset`     | `60`                            | Time in seconds until the rate limit resets.                       |
-| `X-User-Id`             | `68d9bbd1c193e004331fd882`      | Authenticated user’s ID for this request.                          |
-| `X-User-Type`           | `member`                        | Role or type of the authenticated user.                            |
-
-```
-
 Common codes: `400 INVALID_REQUEST`, `401 UNAUTHORIZED`, `403 FORBIDDEN`, `404 RESOURCE_NOT_FOUND`, `429 RATE_LIMIT_EXCEEDED`, `500 INTERNAL_ERROR`
 
 Rate limit headers:
 
-```
 X-RateLimit-Limit: 1000
 X-RateLimit-Remaining: 950
-```
+
 
 ---
 
