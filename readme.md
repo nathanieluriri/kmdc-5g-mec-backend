@@ -176,7 +176,7 @@ Standard Response Headers:
 | `X-RateLimit-Remaining` | `59`                            | Remaining requests in the current time window.                     |
 | `X-RateLimit-Reset`     | `60`                            | Time in seconds until the rate limit resets.                       |
 | `X-User-Id`             | `68d9bbd1c193e004331fd882`      | Authenticated user’s ID for this request.                          |
-| `X-User-Type`           | `member/admin`                        | Role or type of the authenticated user.                            |
+| `X-User-Type`           | `member/admin/annonymous`                        | Role or type of the authenticated user.                            |
 
 
 ---
@@ -234,15 +234,9 @@ Authenticate immediately after connecting:
 
   ```json
   {
-    "success": true,
+    "status_code": 200,
     "data": { /* payload */ },
-    "metadata": {
-      "request_id": "req-123456",
-      "timestamp": "2025-09-21T10:23:00Z",
-      "processing_time_ms": 45,
-      "api_version": "1.0.0"
-    },
-    "pagination": { /* optional */ }
+    "detail": { /* detail on request */ }
   }
   ```
 
